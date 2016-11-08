@@ -15,7 +15,6 @@ private:
 
     int d;
 
-
     void ResetLine()
     {
         for(int i = 0 ; i < 1000; i++)
@@ -108,17 +107,34 @@ private:
     {
         switch(*_pP)
         {
-            case '>': ptr(); break;
-            case '<': ptl(); break;
-            case '+': inc(); break;
-            case '-': dec(); break;
-            case '.': output(); break;
-            case ',': input(); break;
-            case '[': openB(); break;
-            case ']': closeB(); break;
-            default: return;
+        case '>':
+            ptr();
+            break;
+        case '<':
+            ptl();
+            break;
+        case '+':
+            inc();
+            break;
+        case '-':
+            dec();
+            break;
+        case '.':
+            output();
+            break;
+        case ',':
+            input();
+            break;
+        case '[':
+            openB();
+            break;
+        case ']':
+            closeB();
+            break;
+        default:
+            return;
         }
-       _pP++;
+        _pP++;
     }
 
 public:
@@ -127,13 +143,12 @@ public:
         ifstream in(filename);
         ptrLastPosition = &program[0];
         char* ptrStart = &program[0];
-        int c = 0;
+
         while(!in.eof())
-        {
-            c++;
-           in >> *ptrLastPosition++;
-        }
+            in >> *ptrLastPosition++;
+
         ptrLastPosition--;
+
         in.close();
         InitialiseAndRun();
 
